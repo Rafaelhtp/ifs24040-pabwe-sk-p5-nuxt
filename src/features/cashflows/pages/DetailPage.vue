@@ -112,8 +112,8 @@ onMounted(() => {
     <!-- Not Found State -->
     <div v-else-if="!cashFlowsStore.cashFlow" class="py-20 text-center bg-slate-800/40 rounded-2xl border border-slate-800" data-testid="detail-not-found">
       <FileText class="w-12 h-12 text-slate-600 mx-auto mb-3" />
-      <h3 class="text-base font-semibold text-slate-300">Data Transaksi Tidak Ditemukan</h3>
-      <p class="text-xs text-slate-500 mt-1">Transaksi mungkin sudah dihapus atau ID tidak valid.</p>
+      <h2 class="text-base font-semibold text-slate-300">Data Transaksi Tidak Ditemukan</h2>
+      <p class="text-xs text-slate-400 mt-1">Transaksi mungkin sudah dihapus atau ID tidak valid.</p>
     </div>
 
     <!-- Detail Card -->
@@ -133,9 +133,9 @@ onMounted(() => {
             {{ cashFlowsStore.cashFlow.type === 'inflow' ? 'Uang Masuk (Inflow)' : 'Uang Keluar (Outflow)' }}
           </span>
 
-          <h2 class="text-2xl font-bold text-white tracking-tight" data-testid="detail-label">
+          <h1 class="text-2xl font-bold text-white tracking-tight" data-testid="detail-label">
             {{ cashFlowsStore.cashFlow.label }}
-          </h2>
+          </h1>
         </div>
 
         <div class="text-left sm:text-right">

@@ -88,7 +88,7 @@ function isCurrent(href: string, exact: boolean): boolean {
           @click="onClose?.()"
           class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition"
           :class="{
-            'bg-sky-500 text-white shadow-lg shadow-sky-500/20 font-semibold': isCurrent(item.href, item.exact),
+            'bg-sky-700 text-white shadow-lg shadow-sky-700/20 font-semibold': isCurrent(item.href, item.exact),
             'text-slate-400 hover:text-white hover:bg-slate-800/60': !isCurrent(item.href, item.exact),
           }"
           :data-testid="`nav-link-${item.href.replace('/', '') || 'home'}`"
@@ -102,7 +102,7 @@ function isCurrent(href: string, exact: boolean): boolean {
       <div class="p-4 border-t border-slate-800/80">
         <div class="bg-slate-800/40 rounded-xl p-3 border border-slate-800">
           <p class="text-xs font-semibold text-slate-300">PABWE 2026 - P5</p>
-          <p class="text-[11px] text-slate-500 mt-0.5">NIM: IFS24040</p>
+          <p class="text-[11px] text-slate-400 mt-0.5">NIM: IFS24040</p>
         </div>
       </div>
     </aside>

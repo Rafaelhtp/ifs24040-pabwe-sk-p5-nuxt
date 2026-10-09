@@ -71,9 +71,9 @@ onMounted(() => {
         </div>
 
         <div class="flex-1 min-w-0">
-          <h3 class="text-base font-semibold text-white truncate" data-testid="user-name">
+          <h2 class="text-base font-semibold text-white truncate" data-testid="user-name">
             {{ user.name }}
-          </h3>
+          </h2>
           <p class="text-sm text-slate-400 flex items-center gap-1.5 mt-1 truncate" data-testid="user-email">
             <Mail class="w-3.5 h-3.5 text-slate-500 shrink-0" />
             <span class="truncate">{{ user.email }}</span>

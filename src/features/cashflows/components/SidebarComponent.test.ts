@@ -48,6 +48,6 @@ describe("SidebarComponent", () => {
     await wrapper.vm.$nextTick();
 
     const usersLink = wrapper.find("[data-testid='nav-link-users']");
-    expect(usersLink.classes()).toContain("bg-sky-500");
+    expect(usersLink.classes()).toContain("bg-sky-700");
   });
 });

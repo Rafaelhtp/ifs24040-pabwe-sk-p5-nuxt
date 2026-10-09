@@ -173,7 +173,7 @@ async function handleSubmit() {
           <button
             type="submit"
             :disabled="cashFlowsStore.isCashFlowAdd"
-            class="px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-white text-sm font-semibold shadow-lg shadow-sky-500/20 transition disabled:opacity-50"
+            class="px-5 py-2.5 rounded-xl bg-sky-700 hover:bg-sky-600 text-white text-sm font-semibold shadow-lg shadow-sky-500/20 transition disabled:opacity-50"
             data-testid="btn-submit-add"
           >
             {{ cashFlowsStore.isCashFlowAdd ? "Menyimpan..." : "Simpan Transaksi" }}

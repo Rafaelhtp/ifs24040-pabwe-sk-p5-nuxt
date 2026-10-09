@@ -4,6 +4,7 @@ declare const DELCOM_BASEURL: string;
 
 interface ImportMetaEnv {
   readonly VITE_DELCOM_BASEURL: string;
+  readonly VITE_DELCOM_DIRECT?: string;
   readonly APP_PORT?: string;
 }
 

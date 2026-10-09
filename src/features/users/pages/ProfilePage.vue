@@ -134,14 +134,16 @@ onMounted(() => {
           class="hidden"
           @change="handleFileChange"
           data-testid="file-avatar-input"
+          aria-label="Pilih foto profil"
         />
 
         <button
           @click="triggerFileInput"
           :disabled="usersStore.isUploadingPhoto"
-          class="absolute -bottom-2 -right-2 p-2 bg-sky-500 hover:bg-sky-400 text-white rounded-xl shadow-lg transition disabled:opacity-50"
+          class="absolute -bottom-2 -right-2 p-2 bg-sky-700 hover:bg-sky-600 text-white rounded-xl shadow-lg transition disabled:opacity-50"
           data-testid="btn-upload-avatar"
           title="Ubah Foto Profil"
+          aria-label="Ubah Foto Profil"
         >
           <Upload class="w-4 h-4" />
         </button>
@@ -184,10 +186,11 @@ onMounted(() => {
           </div>
 
           <div>
-            <label class="block text-sm font-medium text-slate-300 mb-1">
+            <label for="profile-email" class="block text-sm font-medium text-slate-300 mb-1">
               Email (Tidak dapat diubah)
             </label>
             <input
+              id="profile-email"
               type="email"
               :value="usersStore.profile?.email || ''"
               disabled
@@ -199,7 +202,7 @@ onMounted(() => {
           <button
             type="submit"
             :disabled="usersStore.isUpdatingProfile"
-            class="w-full py-2.5 px-4 rounded-xl bg-sky-500 hover:bg-sky-400 text-white font-medium flex items-center justify-center gap-2 shadow-lg shadow-sky-500/20 transition disabled:opacity-50"
+            class="w-full py-2.5 px-4 rounded-xl bg-sky-700 hover:bg-sky-600 text-white font-medium flex items-center justify-center gap-2 shadow-lg shadow-sky-500/20 transition disabled:opacity-50"
             data-testid="btn-save-profile"
           >
             <Save class="w-4 h-4" />

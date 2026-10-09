@@ -77,7 +77,7 @@ async function handleSubmit() {
     <button
       type="submit"
       :disabled="authStore.isAuthLogin"
-      class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-semibold flex items-center justify-center gap-2 shadow-lg shadow-sky-500/20 transition disabled:opacity-50"
+      class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-sky-700 to-blue-700 hover:from-sky-600 hover:to-blue-600 text-white font-semibold flex items-center justify-center gap-2 shadow-lg shadow-sky-500/20 transition disabled:opacity-50"
       data-testid="btn-login"
     >
       <LogIn class="w-5 h-5" />

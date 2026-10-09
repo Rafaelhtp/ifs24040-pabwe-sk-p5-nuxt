@@ -68,6 +68,8 @@ async function handleLogout() {
               v-if="displayPhoto"
               :src="displayPhoto"
               alt="Avatar"
+              width="36"
+              height="36"
               class="w-full h-full object-cover"
               data-testid="navbar-user-avatar"
             />

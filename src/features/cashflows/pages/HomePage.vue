@@ -142,7 +142,7 @@ onMounted(() => {
 
         <button
           @click="handleOpenAdd"
-          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white text-sm font-semibold shadow-lg shadow-sky-500/20 transition"
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-sky-700 to-blue-700 hover:from-sky-600 hover:to-blue-600 text-white text-sm font-semibold shadow-lg shadow-sky-500/20 transition"
           data-testid="btn-add-transaction"
         >
           <Plus class="w-4 h-4" />
@@ -229,7 +229,7 @@ onMounted(() => {
         </div>
         <button
           @click="resetFilters"
-          class="text-xs text-slate-400 hover:text-white transition"
+          class="px-2 py-1.5 text-xs text-slate-400 hover:text-white transition"
           data-testid="btn-reset-filters"
         >
           Reset Filter
@@ -244,6 +244,7 @@ onMounted(() => {
             @change="loadData"
             class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:ring-1 focus:ring-sky-500"
             data-testid="filter-type"
+            aria-label="Filter jenis transaksi"
           >
             <option value="">Semua Jenis (In/Out)</option>
             <option value="inflow">Pemasukan (Inflow)</option>
@@ -258,6 +259,7 @@ onMounted(() => {
             @change="loadData"
             class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:ring-1 focus:ring-sky-500"
             data-testid="filter-source"
+            aria-label="Filter sumber dana"
           >
             <option value="">Semua Sumber</option>
             <option value="cash">Tunai (Cash)</option>
@@ -275,6 +277,7 @@ onMounted(() => {
             placeholder="Cari label / kategori..."
             class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
             data-testid="filter-label"
+            aria-label="Cari label transaksi"
           />
         </div>
 
@@ -286,6 +289,7 @@ onMounted(() => {
             @change="loadData"
             class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:ring-1 focus:ring-sky-500"
             data-testid="filter-start-date"
+            aria-label="Tanggal mulai"
           />
         </div>
 
@@ -297,6 +301,7 @@ onMounted(() => {
             @change="loadData"
             class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:ring-1 focus:ring-sky-500"
             data-testid="filter-end-date"
+            aria-label="Tanggal akhir"
           />
         </div>
       </div>
@@ -305,10 +310,10 @@ onMounted(() => {
     <!-- Transactions Table / List -->
     <div class="bg-slate-800/60 border border-slate-700/60 rounded-2xl overflow-hidden shadow-sm" data-testid="transactions-card">
       <div class="px-6 py-4 border-b border-slate-700/60 flex items-center justify-between">
-        <h3 class="font-semibold text-white text-base flex items-center gap-2">
+        <h2 class="font-semibold text-white text-base flex items-center gap-2">
           <ArrowUpDown class="w-4 h-4 text-sky-400" />
           Daftar Riwayat Transaksi
-        </h3>
+        </h2>
         <span class="text-xs text-slate-400">
           {{ cashFlowsStore.cashFlows.length }} data ditemukan
         </span>
@@ -323,8 +328,8 @@ onMounted(() => {
       <!-- Empty State -->
       <div v-else-if="cashFlowsStore.cashFlows.length === 0" class="py-16 text-center" data-testid="table-empty">
         <Calendar class="w-12 h-12 text-slate-600 mx-auto mb-3" />
-        <h4 class="text-sm font-semibold text-slate-300">Belum ada transaksi</h4>
-        <p class="text-xs text-slate-500 mt-1">Gunakan tombol "Tambah Transaksi" untuk mencatat data baru.</p>
+        <h3 class="text-sm font-semibold text-slate-300">Belum ada transaksi</h3>
+        <p class="text-xs text-slate-400 mt-1">Gunakan tombol "Tambah Transaksi" untuk mencatat data baru.</p>
       </div>
 
       <!-- Table View -->
@@ -389,6 +394,7 @@ onMounted(() => {
                     @click="handleViewDetail(item.id)"
                     class="p-1.5 rounded-lg text-slate-400 hover:text-sky-400 hover:bg-slate-800 transition"
                     title="Lihat Detail"
+                    aria-label="Lihat Detail"
                     data-testid="btn-action-detail"
                   >
                     <Eye class="w-4 h-4" />
@@ -398,6 +404,7 @@ onMounted(() => {
                     @click="handleOpenEdit(item)"
                     class="p-1.5 rounded-lg text-slate-400 hover:text-amber-400 hover:bg-slate-800 transition"
                     title="Ubah Transaksi"
+                    aria-label="Ubah Transaksi"
                     data-testid="btn-action-edit"
                   >
                     <Edit2 class="w-4 h-4" />
@@ -407,6 +414,7 @@ onMounted(() => {
                     @click="handleDelete(item.id)"
                     class="p-1.5 rounded-lg text-slate-400 hover:text-rose-400 hover:bg-slate-800 transition"
                     title="Hapus Transaksi"
+                    aria-label="Hapus Transaksi"
                     data-testid="btn-action-delete"
                   >
                     <Trash2 class="w-4 h-4" />
