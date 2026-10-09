@@ -1,5 +1,6 @@
 import tailwindcss from "@tailwindcss/vite";
 import { deferNuxtCss } from "./server/utils/deferCss";
+import { fileURLToPath } from "node:url";
 
 const appPort = Number(process.env.APP_PORT) || 3000;
 const delcomBaseUrl = process.env.VITE_DELCOM_BASEURL || "https://open-api.delcom.org/api/v1";
@@ -14,7 +15,16 @@ export default defineNuxtConfig({
   ssr: false,
   srcDir: "src/",
   pages: true,
+
+  experimental: {
+    appManifest: false,
+  },
   modules: ["@pinia/nuxt"],
+  hooks: {
+    "app:resolve"(app) {
+      app.rootComponent = fileURLToPath(new URL("./src/App.vue", import.meta.url));
+    },
+  },
 
   vite: {
     plugins: [tailwindcss()],
