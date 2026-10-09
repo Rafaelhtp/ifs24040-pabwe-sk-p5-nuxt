@@ -13,7 +13,7 @@ const useDirectApi = process.env.VITE_DELCOM_DIRECT === "true";
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   telemetry: false,
 
   // SPA mode: SSR dimatikan karena aplikasi bergantung pada storage browser
