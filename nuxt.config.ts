@@ -1,9 +1,11 @@
+import { fileURLToPath } from "node:url";
 import tailwindcss from "@tailwindcss/vite";
 import { deferNuxtCss } from "./server/utils/deferCss";
-import { fileURLToPath } from "node:url";
 
 const appPort = Number(process.env.APP_PORT) || 3000;
 const delcomBaseUrl = process.env.VITE_DELCOM_BASEURL || "https://open-api.delcom.org/api/v1";
+
+const src = (path: string) => fileURLToPath(new URL(`./src/${path}`, import.meta.url));
 
 const FONT_URL =
   "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap";
@@ -15,12 +17,53 @@ export default defineNuxtConfig({
   ssr: false,
   srcDir: "src/",
   pages: true,
+  modules: ["@pinia/nuxt"],
 
   experimental: {
     appManifest: false,
   },
-  modules: ["@pinia/nuxt"],
+
   hooks: {
+    // Daftarkan rute langsung dari sini (tidak bergantung lokasi router.options di Nuxt 3/4).
+    // Struktur sama dengan src/routes.ts.
+    "pages:extend"(pages) {
+      pages.splice(
+        0,
+        pages.length,
+        {
+          path: "/auth",
+          file: src("features/auth/layouts/AuthLayout.vue"),
+          children: [
+            { path: "login", name: "login", file: src("features/auth/pages/LoginPage.vue") },
+            { path: "register", name: "register", file: src("features/auth/pages/RegisterPage.vue") },
+            { path: "", file: src("features/auth/pages/LoginPage.vue") },
+          ],
+        },
+        {
+          path: "/",
+          file: src("features/cashflows/layouts/CashFlowLayout.vue"),
+          meta: { requiresAuth: true },
+          children: [
+            { path: "", name: "home", file: src("features/cashflows/pages/HomePage.vue") },
+            {
+              path: "cash-flows/:cashFlowId",
+              name: "cash-flow-detail",
+              file: src("features/cashflows/pages/DetailPage.vue"),
+            },
+            { path: "users", name: "users", file: src("features/users/pages/UsersPage.vue") },
+            { path: "profile", name: "profile", file: src("features/users/pages/ProfilePage.vue") },
+          ],
+        },
+        {
+          path: "/:pathMatch(.*)*",
+          name: "not-found",
+          file: src("features/common/pages/NotFoundPage.vue"),
+        },
+      );
+    },
+
+    // Nuxt mencari app.vue (huruf kecil) yang tidak cocok dengan src/App.vue di Linux/Vercel.
+    // Paksa Nuxt memakai src/App.vue sebagai root component.
     "app:resolve"(app) {
       app.rootComponent = fileURLToPath(new URL("./src/App.vue", import.meta.url));
     },
