@@ -25,7 +25,8 @@ const routes: RouteRecordRaw[] = [
     path: "/",
     component: CashFlowLayout,
     children: [
-      { path: "", component: HomePage },
+      { path: "", redirect: "/home" },
+      { path: "home", component: HomePage },
       { path: "cash-flows/:cashFlowId", component: DetailPage },
       { path: "users", component: UsersPage },
       { path: "profile", component: ProfilePage },

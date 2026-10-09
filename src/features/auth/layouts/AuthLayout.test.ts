@@ -20,6 +20,6 @@ describe("AuthLayout", () => {
     const { router } = await renderWithProviders(AuthLayout, { route: "/auth/login" });
     await flushPromises();
 
-    expect(router.currentRoute.value.fullPath).toBe("/");
+    expect(router.currentRoute.value.fullPath).toBe("/home");
   });
 });

@@ -7,7 +7,7 @@ import CashFlowLayout from "./CashFlowLayout.vue";
 
 function setup() {
   return renderWithProviders(CashFlowLayout, {
-    route: "/",
+    route: "/home",
     beforeMount: (pinia) => {
       vi.spyOn(useUsersStore(pinia), "asyncGetProfile").mockResolvedValue(true);
     },
@@ -29,7 +29,7 @@ describe("CashFlowLayout", () => {
     const { wrapper, pinia, router } = await setup();
     await flushPromises();
 
-    expect(router.currentRoute.value.fullPath).toBe("/");
+    expect(router.currentRoute.value.fullPath).toBe("/home");
     expect(useUsersStore(pinia).asyncGetProfile).toHaveBeenCalledTimes(1);
     expect(wrapper.find("header").exists()).toBe(true);
     expect(wrapper.find('[data-testid="sidebar"]').exists()).toBe(true);

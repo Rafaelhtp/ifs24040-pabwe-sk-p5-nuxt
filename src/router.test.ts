@@ -25,7 +25,7 @@ describe("router", () => {
   it.each([
     ["/auth/login", "/auth/login"],
     ["/auth/register", "/auth/register"],
-    ["/", "/"],
+    ["/home", "/home"],
     ["/cash-flows/12", "/cash-flows/:cashFlowId"],
     ["/users", "/users"],
     ["/profile", "/profile"],

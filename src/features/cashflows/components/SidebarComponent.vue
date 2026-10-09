@@ -6,7 +6,7 @@ defineProps<{ open: boolean }>();
 const emit = defineEmits<{ (e: "close"): void }>();
 
 const menus = [
-  { to: "/", label: "Ringkasan Arus Kas", icon: LayoutDashboard },
+  { to: "/home", label: "Ringkasan Arus Kas", icon: LayoutDashboard },
   { to: "/users", label: "Direktori Pengguna", icon: Users },
   { to: "/profile", label: "Profil Saya", icon: UserRound },
 ];

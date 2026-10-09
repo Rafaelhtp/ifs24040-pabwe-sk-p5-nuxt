@@ -8,6 +8,6 @@ describe("NotFoundPage", () => {
 
     expect(wrapper.text()).toContain("404");
     expect(wrapper.text()).toContain("halaman tidak ditemukan");
-    expect(wrapper.find("a").attributes("href")).toBe("/");
+    expect(wrapper.find("a").attributes("href")).toBe("/home");
   });
 });

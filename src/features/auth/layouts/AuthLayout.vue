@@ -10,7 +10,7 @@ const authStore = useAuthStore();
 onMounted(() => {
   // Pengguna yang sudah login tidak perlu melihat halaman auth lagi
   if (authStore.isAuthenticated) {
-    router.replace("/");
+    router.replace("/home");
   }
 });
 

@@ -13,7 +13,7 @@ vi.mock("../../../helpers/toolsHelper", async (importOriginal) => {
 
 function setup() {
   return renderWithProviders(NavbarComponent, {
-    route: "/",
+    route: "/home",
     beforeMount: (pinia) => {
       vi.spyOn(useAuthStore(pinia), "asyncSetIsAuthLogout").mockResolvedValue();
     },
@@ -54,7 +54,7 @@ describe("NavbarComponent", () => {
     await flushPromises();
 
     expect(useAuthStore(pinia).asyncSetIsAuthLogout).not.toHaveBeenCalled();
-    expect(router.currentRoute.value.fullPath).toBe("/");
+    expect(router.currentRoute.value.fullPath).toBe("/home");
   });
 
   it("should logout and go to login page when confirmed", async () => {

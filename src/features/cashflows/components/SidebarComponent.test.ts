@@ -7,7 +7,7 @@ describe("SidebarComponent", () => {
     const { wrapper } = await renderWithProviders(SidebarComponent, { props: { open: false } });
 
     const links = wrapper.findAll("nav a");
-    expect(links.map((link) => link.attributes("href"))).toEqual(["/", "/users", "/profile"]);
+    expect(links.map((link) => link.attributes("href"))).toEqual(["/home", "/users", "/profile"]);
     expect(wrapper.text()).toContain("Ringkasan Arus Kas");
     expect(wrapper.text()).toContain("Direktori Pengguna");
     expect(wrapper.text()).toContain("Profil Saya");

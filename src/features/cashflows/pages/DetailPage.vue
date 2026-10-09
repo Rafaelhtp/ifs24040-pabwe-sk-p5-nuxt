@@ -22,7 +22,7 @@ const cashFlowId = route.params.cashFlowId as string;
 async function loadData() {
   const success = await store.asyncGetCashFlow(cashFlowId);
   if (!success) {
-    router.replace("/");
+    router.replace("/home");
   }
 }
 
@@ -42,7 +42,7 @@ async function onDelete() {
     return;
   }
   if (await store.asyncDeleteCashFlow(cashFlowId)) {
-    router.replace("/");
+    router.replace("/home");
   }
 }
 </script>
@@ -50,7 +50,7 @@ async function onDelete() {
 <template>
   <section class="space-y-6">
     <h1 class="sr-only">Detail Transaksi</h1>
-    <RouterLink to="/" class="inline-flex items-center gap-2 text-sm font-semibold text-teal-600">
+    <RouterLink to="/home" class="inline-flex items-center gap-2 text-sm font-semibold text-teal-600">
       <ArrowLeft class="h-4 w-4" /> Kembali
     </RouterLink>
 

@@ -38,7 +38,7 @@ describe("LoginPage", () => {
 
     expect(useAuthStore(pinia).asyncSetIsAuthLogin).toHaveBeenCalledWith({ email: "a@b.c", password: "123456" });
     expect(wrapper.find('[data-testid="login-error"]').exists()).toBe(false);
-    expect(router.currentRoute.value.fullPath).toBe("/");
+    expect(router.currentRoute.value.fullPath).toBe("/home");
   });
 
   it("should stay on login page when login fails", async () => {

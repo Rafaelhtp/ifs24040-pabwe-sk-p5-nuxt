@@ -24,7 +24,7 @@ async function onSubmit() {
     password: password.value,
   });
   if (success) {
-    router.push("/");
+    router.push("/home");
   }
 }
 </script>

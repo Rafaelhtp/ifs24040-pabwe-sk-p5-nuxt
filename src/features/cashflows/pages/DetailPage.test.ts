@@ -74,7 +74,7 @@ describe("DetailPage", () => {
   it("should redirect home when loading fails", async () => {
     const { router } = await setup({ loadResult: false });
     await flushPromises();
-    expect(router.currentRoute.value.fullPath).toBe("/");
+    expect(router.currentRoute.value.fullPath).toBe("/home");
   });
 
   it("should render inflow details", async () => {
@@ -138,7 +138,7 @@ describe("DetailPage", () => {
     await flushPromises();
 
     expect(useCashFlowsStore(pinia).asyncDeleteCashFlow).toHaveBeenCalledWith("5");
-    expect(router.currentRoute.value.fullPath).toBe("/");
+    expect(router.currentRoute.value.fullPath).toBe("/home");
   });
 
   it("should stay on the page when delete fails", async () => {

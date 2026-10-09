@@ -33,7 +33,7 @@ export async function renderWithProviders(component: Component, options: RenderO
     history: createMemoryHistory(),
     routes: options.routes ?? defaultRoutes,
   });
-  router.push(options.route ?? "/");
+  router.push(options.route ?? "/home");
   await router.isReady();
   options.beforeMount?.(pinia);
 
