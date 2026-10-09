@@ -16,6 +16,7 @@ export default defineNuxtConfig({
   telemetry: false,
   ssr: false,
   srcDir: "src/",
+  serverDir: "server",
   pages: true,
   modules: ["@pinia/nuxt"],
 
