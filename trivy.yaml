@@ -1,0 +1,4 @@
+# Dibaca otomatis oleh `trivy fs .` di Jenkins (tanpa mengubah Jenkinsfile).
+# Abaikan celah yang belum punya versi perbaikan di upstream (braces, node-forge).
+vulnerability:
+  ignore-unfixed: true
